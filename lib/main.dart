@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
           title: 'Kml Bank',
           home: const SplashScreen(),
           builder: (context, child) => MediaQuery(
-            data: MediaQuery.of(context).copyWith(textScaleFactor: 1.sp),
+            data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
             child: child!,
           ),
         );
