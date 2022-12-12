@@ -40,6 +40,10 @@ dependencies:
   get: ^4.6.5
   flutter_screenutil: ^5.6.0
   google_fonts: ^3.0.1
+  country_list_pick: ^1.0.1+6
+  percent_indicator: ^4.2.2
+  pinput: ^2.2.16
+  string_validator: ^0.3.0
 
 dev_dependencies:
   flutter_test:

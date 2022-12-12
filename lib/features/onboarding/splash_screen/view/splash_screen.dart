@@ -21,6 +21,8 @@ class SplashScreen extends StatelessWidget {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
               colors: [KColors.blue1, KColors.green1],
+              stops: [0.28, 1],
+              begin: Alignment.topCenter,
               end: Alignment.bottomCenter),
         ),
         child: Image.asset(

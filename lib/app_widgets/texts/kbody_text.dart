@@ -26,7 +26,7 @@ class KbodyText extends StatelessWidget {
       style: GoogleFonts.inter(
         color: color,
         fontSize: fontSize!.sp,
-        height: fontSize!.sp / height!.sp,
+        height: height! / fontSize!,
         fontWeight: weight,
       ),
     );

@@ -5,10 +5,12 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kml_bank_2/app_widgets/buttons/kapp_button.dart';
 import 'package:kml_bank_2/core/app_colors/app_colors.dart';
 import 'package:kml_bank_2/core/extensions/string_extension.dart';
+import 'package:kml_bank_2/features/onboarding/sign_up/view/signup_view1.dart';
 
 import '../../app_widgets/texts/kbody_text.dart';
 import '../../app_widgets/texts/kheader_text.dart';
@@ -44,7 +46,9 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 KAppButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(() => SignUpView1());
+                  },
                   width: 155.0,
                   text: 'Sign Up',
                 ),
