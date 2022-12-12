@@ -25,7 +25,9 @@ class UserController extends GetxController {
   }
 
   bool get isActive2 {
-    return otp.value.isNotEmpty && otp.value.length == 6;
+    return otp.value.isNotEmpty &&
+        otp.value.length == 6 &&
+        otp.value.isNumericOnly;
   }
 
   bool get isActive3 {
@@ -36,7 +38,14 @@ class UserController extends GetxController {
     return (firstName.value.isNotEmpty && firstName.value.isAlphabetOnly) &&
         (lastName.value.isNotEmpty && lastName.value.isAlphabetOnly) &&
         (email.value.isNotEmpty && email.value.isEmail) &&
-        dob.value.isNotEmpty;
+        dob.value.isNotEmpty &&
+        gender.value.isNotEmpty;
+  }
+
+  bool get isActive5 {
+    return passCode.value.isNotEmpty &&
+        passCode.value.length == 4 &&
+        passCode.value.isNumericOnly;
   }
 
   setDob(String value) {

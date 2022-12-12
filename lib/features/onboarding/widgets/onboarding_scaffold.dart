@@ -18,6 +18,7 @@ class OnboardingScaffold extends StatelessWidget {
     this.onPressed,
     this.childern = const [],
     required this.active,
+    this.widget,
   }) : super(key: key);
 
   final UserController ctrl1;
@@ -26,6 +27,7 @@ class OnboardingScaffold extends StatelessWidget {
   final Function()? onPressed;
   final List<Widget> childern;
   final Function active;
+  final Widget? widget;
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +61,7 @@ class OnboardingScaffold extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const KbodyText(text: 'Resend in 20 seconds?'),
+                widget ?? Gap(10.0.w),
                 Obx(
                   () => FloatingActionButton(
                     onPressed: active() ? onPressed : null,

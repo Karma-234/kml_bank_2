@@ -8,9 +8,15 @@ import 'package:kml_bank_2/features/onboarding/sign_up/controller/user_controlle
 import 'package:kml_bank_2/features/onboarding/sign_up/view/signup_view4.dart';
 import 'package:kml_bank_2/features/onboarding/widgets/onboarding_scaffold.dart';
 
+import '../../../../app_widgets/input_fields/k_input_field.dart';
+
 class SignUpView3 extends StatelessWidget {
   SignUpView3({super.key});
   final ctrl = Get.put(UserController());
+  final obscure = true.obs;
+  void showPassword() {
+    obscure.value = !obscure.value;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,71 +27,24 @@ class SignUpView3 extends StatelessWidget {
       active: () => ctrl.isActive3,
       onPressed: () => Get.to(() => SignUpView4()),
       childern: [
-        KInputField(
-          onChanged: (p0) => ctrl.setPassword(p0),
-          hint: 'Password',
-          label: 'Password',
+        Obx(
+          () => KInputField(
+            hide: obscure.value,
+            onChanged: (p0) => ctrl.setPassword(p0),
+            hint: 'Password',
+            label: 'Password',
+            suffixIcon: InkWell(
+              onTap: () => showPassword(),
+              child: Icon(
+                obscure.value
+                    ? Icons.remove_red_eye_sharp
+                    : Icons.remove_red_eye_outlined,
+                color: KColors.grey5,
+              ),
+            ),
+          ),
         ),
       ],
-    );
-  }
-}
-
-class KInputField extends StatelessWidget {
-  const KInputField({
-    Key? key,
-    this.onChanged,
-    required this.hint,
-    required this.label,
-  }) : super(key: key);
-  final Function(String)? onChanged;
-  final String hint;
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(10.0.r),
-      height: 56.0.h,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0.r),
-        color: KColors.grey3,
-      ),
-      child: TextFormField(
-        onChanged: onChanged,
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.symmetric(vertical: 10.0.h),
-          hintText: hint,
-          hintStyle: GoogleFonts.inter(
-            fontSize: 14.0,
-            height: 18.2 / 14.0,
-            color: KColors.grey5,
-          ),
-          enabled: true,
-          filled: true,
-          fillColor: KColors.grey3,
-          focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide(
-              color: KColors.grey3,
-            ),
-          ),
-          enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(
-              color: KColors.grey3,
-            ),
-          ),
-          border: const OutlineInputBorder(
-            borderSide: BorderSide(
-              color: KColors.grey3,
-            ),
-          ),
-          label: KbodyText(
-            text: label,
-            height: 18.2,
-            color: KColors.grey5,
-          ),
-        ),
-      ),
     );
   }
 }
